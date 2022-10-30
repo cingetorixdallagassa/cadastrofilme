@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+ <head>
+  <title>Cadastro de filmes</title>
+ </head>
+ <body>
+<style>
+.container {
+ display: grid;
+ grid-gap: 5px;
+ grid-template-areas:
+  "header header"
+  "sidebar sidebar";
+}
+.item {
+ background-color: #1E96FF;
+ color: #FFFFFF;
+ text-align: center;
+ padding: 20px;
+}
+
+.header {
+ grid-area: header;
+}
+
+.sidebar {
+ grid-area: sidebar;
+}
+li{
+font-family: verdana;
+}
+</style>
+  <div class="container">
+   <div class="item header">
+<form onsubmit="return addMovie('list', this.inputItem)"> 
+  <input type="text" id="inputItem" placeholder="Cadastre seu filme">
+  <input type="submit">
+</form>
+</div>
+   <div class="item sidebar">
+<ul id="list">
+</ul>
+</div>
+  </div>
+<script>
+function addMovie(list, inputField) { 
+  var list = document.getElementById("list");
+  var listItem = document.createElement("li");
+  listItem.innerText = inputField.value; 
+  list.appendChild(listItem);
+  return false; 
+}
+</script>
+ </body>
+</html>
